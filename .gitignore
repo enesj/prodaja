@@ -1,0 +1,14 @@
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.idea
+*.xlsx
+*.dll
+/.lein-*
+/.nrepl-port
+/src/prodaja/data.clj
+*.iml
