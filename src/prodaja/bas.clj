@@ -434,21 +434,22 @@
       (c/from-string (second date-range)))
     (c/to-date-time date)))
 
+
 (defn agregate-product-data [product-data]
   (reduce
     (fn [x y]
       (vector
         (:standard_id y)
-        (:p_name y)
-        (conj (nth x 2) (:lang y))
-        (conj (nth x 3) (:invoice_number y))
-        (conj (nth x 4) (.format (java.text.SimpleDateFormat. "dd/MM/yyyy") (:date_order y)))
-        (conj (nth x 5) (double (if (:p_price y) (:p_price y) 0)))
-        (conj (nth x 6) (double (if (:currency_amount y) (:currency_amount y) 0)))
-        (int (+ (nth x 7) (:p_quantity y)))
-        (double (+ (last x) (* (:p_quantity y)
-                               (:p_price y)
-                               (- 1 (/ (:p_discount y) 100)))))))
+        (conj (x 1) (:p_name y))
+        (conj (x 2) (:lang y))
+        (conj (x 3) (:invoice_number y))
+        (conj (x 4) (.format (java.text.SimpleDateFormat. "dd/MM/yyyy") (:date_order y)))
+        (conj (x 5) (double (if (:p_price y) (:p_price y) 0)))
+        (conj (x 6) (double (if (:currency_amount y) (:currency_amount y) 0)))
+        (int (+ (x 7) (:p_quantity y)))
+        (double (+ (x 8) (* (:p_quantity y)
+                            (:p_price y)
+                            (- 1 (/ (:p_discount y) 100)))))))
     [[] [] [] [] [] [] [] 0 0]
     product-data))
 

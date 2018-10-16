@@ -8,6 +8,5 @@
                  [com.microsoft.sqlserver/mssql-jdbc "7.0.0.jre8"]
                  [dk.ative/docjure "1.7.0"]
                  [honeysql "0.9.3"]
-                 [org.clojure/clojure "1.10.0-alpha8"]
+                 [org.clojure/clojure "1.10.0-RC1"]
                  [org.clojure/java.jdbc "0.7.8"]])
-                 ;[uncomplicate/neanderthal "0.20.4"]])
