@@ -13,7 +13,6 @@
 (def smis-standards
   (get_data smis-conn smis-standards-sql))
 
-
 (def ponude-sql
   "SELECT * FROM dbo.Ponude")
 
@@ -25,7 +24,6 @@
 
 (def ponude-stavke
   (get_data standardoteka-conn ponude-stavke-sql))
-
 
 (defn all-ids []
   (->> ponude-stavke
@@ -42,6 +40,8 @@
        (S/transform [S/ALL S/LAST] #(sort-by second %))
        (map #(vector (count (second %))  (second %)))
        (remove #(= (first %) 1))))
+
+
 
 (defn all-ids-map []
   (->> ponude-stavke
@@ -114,10 +114,3 @@
 
 (defn main
   [] nil)
-
-
-
-
-
-
-

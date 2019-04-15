@@ -33,74 +33,92 @@
            "IEC/TRF"
            "IEC/TS"})
 
-(def all-sources {"BAS  DIN"           :din,
-                  "BAS  ETS"           :etsi,
-                  "BAS ASTM D"         :astm,
-                  "BAS ASTM G"         :astm,
-                  "BAS CEN ISO/TR"     :cen,
-                  "BAS CEN ISO/TS"     :cen,
-                  "BAS CEN/CLC Guide " :cen,
-                  "BAS CEN/CLC/TR"     :cen,
-                  "BAS CEN/TR"         :cen,
-                  "BAS CEN/TS"         :cen,
-                  "BAS CISPR"          :iec,
-                  "BAS CLC & IEC"      :clc,
-                  "BAS CLC/R"          :clc,
-                  "BAS CLC/TR"         :clc,
-                  "BAS CLC/TS"         :clc,
-                  "BAS CR"             :none,
-                  "BAS CR ISO"         :iso,
-                  "BAS DIN"            :din,
-                  "BAS DIN VDE"        :din,
-                  "BAS EG"             :none,
-                  "BAS EN"             :cen,
-                  "BAS EN ISO"         :cen,
-                  "BAS EN ISO/IEC"     :cen,
-                  "BAS ENV"            :cen,
-                  "BAS ENV ISO"        :cen,
-                  "BAS ES"             :none,
-                  "BAS ETR"            :none,
-                  "BAS ETS"            :etsi,
-                  "BAS HD"             :hd,
-                  "BAS I-ETS"          :etsi,
-                  "BAS IEC"            :iec,
-                  "BAS IEC TR"         :iec,
-                  "BAS IEC TS"         :iec,
-                  "BAS IEC/IEEE"       :iec,
-                  "BAS IEC/PAS"        :iec,
-                  "BAS IEC/TR"         :iec,
-                  "BAS IEC/TS"         :iec,
-                  "BAS ISO"            :iso,
-                  "BAS ISO Guide"      :iso,
-                  "BAS ISO/DIS"        :iso,
-                  "BAS ISO/IEC"        :iso,
-                  "BAS ISO/IEC Guide"  :iso,
-                  "BAS ISO/IEC ISP"    :iso,
-                  "BAS ISO/IEC TR"     :iso,
-                  "BAS ISO/IEC TS"     :iso,
-                  "BAS ISO/IEC/IEEE"   :iso,
-                  "BAS ISO/IEEE"       :iso,
-                  "BAS ISO/OECD"       :iso,
-                  "BAS ISO/PAS"        :iso,
-                  "BAS ISO/R"          :iso,
-                  "BAS ISO/TR"         :iso,
-                  "BAS ISO/TS"         :iso,
-                  "BAS ISO/WD"         :iso,
-                  "BAS IWA"            :iwa,
-                  "BAS OHSAS"          :ohsas,
-                  "BAS R"              :none,
-                  "BAS SN"             :none,
-                  "BAS TBR"            :none,
-                  "BAS TR"             :none,
-                  "BAS TS"             :none,
-                  "CEN ISO/IEC TR"     :cen,
-                  "EN IEC"             :cen,
-                  "ISO/CD"             :iso,
-                  "ISO/DIS"            :iso,
-                  "ISO/DTS"            :iso,
-                  "ISO/IEC FDIS"       :iso,
-                  "ISO/NP"             :iso,
-                  "ISO/WD"             :iso})
+(def etsi #{"ES"
+            "EG"
+            "ETS"
+            "I-ETS"
+            "TBR"
+            "GS"
+            "NET"
+            "ETR"
+            "TR"
+            "TS"
+            "TCTR"})
+
+(def bs  #{"BS" "CWA"})
+
+(def astm  #{"ASTM"})
+
+(def din #{"DIN" "AD"})
+
+(def all-sources {"BAS  DIN"           #{:all, :din,}
+                  "BAS  ETS"           #{:all, :etsi,}
+                  "BAS ASTM D"         #{:all, :astm,}
+                  "BAS ASTM G"         #{:all, :astm,}
+                  "BAS CEN ISO/TR"     #{:all, :cen, :iso-report}
+                  "BAS CEN ISO/TS"     #{:all, :cen, :iso-report}
+                  "BAS CEN/CLC Guide " #{:all, :cen,}
+                  "BAS CEN/CLC/TR"     #{:all, :cen,}
+                  "BAS CEN/TR"         #{:all, :cen,}
+                  "BAS CEN/TS"         #{:all, :cen,}
+                  "BAS CISPR"          #{:all, :iec,}
+                  "BAS CLC & IEC"      #{:all, :clc,}
+                  "BAS CLC/R"          #{:all, :clc,}
+                  "BAS CLC/TR"         #{:all, :clc,}
+                  "BAS CLC/TS"         #{:all, :clc,}
+                  "BAS CR"             #{:all, :none,}
+                  "BAS CR ISO"         #{:all, :none, :iso-report}
+                  "BAS DIN"            #{:all, :din,}
+                  "BAS DIN VDE"        #{:all, :din,}
+                  "BAS EG"             #{:all, :etsi,}
+                  "BAS EN"             #{:all, :cen,}
+                  "BAS EN ISO"         #{:all, :cen, :iso-report}
+                  "BAS EN ISO/IEC"     #{:all, :cen, :iso-report}
+                  "BAS ENV"            #{:all, :cen,}
+                  "BAS ENV ISO"        #{:all, :cen, :iso-report}
+                  "BAS ES"             #{:all, :etsi,}
+                  "BAS ETR"            #{:all, :etsi,}
+                  "BAS ETS"            #{:all, :etsi,}
+                  "BAS HD"             #{:all, :hd,}
+                  "BAS I-ETS"          #{:all, :etsi,}
+                  "BAS IEC"            #{:all, :iec,}
+                  "BAS IEC TR"         #{:all, :iec,}
+                  "BAS IEC TS"         #{:all, :iec,}
+                  "BAS IEC/IEEE"       #{:all, :iec,}
+                  "BAS IEC/PAS"        #{:all, :iec,}
+                  "BAS IEC/TR"         #{:all, :iec,}
+                  "BAS IEC/TS"         #{:all, :iec,}
+                  "BAS ISO"            #{:all, :iso, :iso-report}
+                  "BAS ISO Guide"      #{:all, :iso, :iso-report}
+                  "BAS ISO/DIS"        #{:all, :iso, :iso-report}
+                  "BAS ISO/IEC"        #{:all, :iso, :iso-report}
+                  "BAS ISO/IEC Guide"  #{:all, :iso, :iso-report}
+                  "BAS ISO/IEC ISP"    #{:all, :iso, :iso-report}
+                  "BAS ISO/IEC TR"     #{:all, :iso, :iso-report}
+                  "BAS ISO/IEC TS"     #{:all, :iso, :iso-report}
+                  "BAS ISO/IEC/IEEE"   #{:all, :iso, :iso-report}
+                  "BAS ISO/IEEE"       #{:all, :iso, :iso-report}
+                  "BAS ISO/OECD"       #{:all, :iso, :iso-report}
+                  "BAS ISO/PAS"        #{:all, :iso, :iso-report}
+                  "BAS ISO/R"          #{:all, :iso, :iso-report}
+                  "BAS ISO/TR"         #{:all, :iso, :iso-report}
+                  "BAS ISO/TS"         #{:all, :iso, :iso-report}
+                  "BAS ISO/WD"         #{:all, :iso, :iso-report}
+                  "BAS IWA"            #{:all, :iwa,}
+                  "BAS OHSAS"          #{:all, :ohsas,}
+                  "BAS R"              #{:all, :none,}
+                  "BAS SN"             #{:all, :none,}
+                  "BAS TBR"            #{:all, :etsi,}
+                  "BAS TR"             #{:all, :etsi,}
+                  "BAS TS"             #{:all, :etsi,}
+                  "CEN ISO/IEC TR"     #{:all, :cen, :no-bas}
+                  "EN IEC"             #{:all, :cen, :no-bas}
+                  "ISO/CD"             #{:all, :iso, :no-bas}
+                  "ISO/DIS"            #{:all, :iso, :no-bas}
+                  "ISO/DTS"            #{:all, :iso, :no-bas}
+                  "ISO/IEC FDIS"       #{:all, :iso, :no-bas}
+                  "ISO/NP"             #{:all, :iso, :no-bas}
+                  "ISO/WD"             #{:all, :iso :no-bas}})
 
 
 
@@ -108,13 +126,13 @@
 
 (def bas #{"BAS"})
 
-(defn std-types [type]
-  (cond
-    (bas type) 1
-    (iso type) 2
-    (iec type) 3
-    (jus type) 5
-    :else 4))
+;(defn std-types [type]
+;  (cond
+;    (bas type) 1
+;    (iso type) 2
+;    (iec type) 3
+;    (jus type) 5
+;    :else 4))
 
 (defn std-types-kw [type]
   (case type
@@ -131,6 +149,12 @@
              5 "04"
              6 "04/1"})
 
+
+(def all-sales
+  "SELECT pay.invoice.invoice_id, pay.invoice.type_invoice_id, pay.invoice.invoice_number, pay.invoice.user_profile_id, pay.invoice.c_name, pay.invoice.c_city,  pay.invoice.c_address, pay.invoice.c_eik, pay.invoice.discount, pay.invoice.date_order, pay.invoice.is_valid, pay.invoice.currency_id,  pay.invoice.invoice_number_prefix, pay.invoice.date_payment, pay.invoice.country, pay.invoice.proforma_date, pay.invoice_product.p_name,  pay.invoice_product.p_quantity, pay.invoice_product.p_price, pay.invoice_product.p_discount
+  FROM pay.invoice
+  INNER JOIN pay.invoice_product ON pay.invoice_product.invoice_id = pay.invoice.invoice_id
+  WHERE (pay.invoice.is_valid = 1)")
 
 
 (def select-ponude
@@ -178,7 +202,7 @@
 (def all-bas-sales-sql
   "SELECT pay.invoice.date_order, pay.invoice.currency_id, pay.invoice.is_valid, pay.invoice_product.p_name, pay.invoice_product.p_quantity, pay.invoice.invoice_number,
   pay.invoice_product.p_price, pay.invoice_product.p_discount, pay.invoice_product.p_id, ts.type_natstd.name as source, ts.natstandard_document.national_standard_id as standard_id,
-  ts.language.name as lang, pay.invoice_product.currency_amount
+  ts.language.name as lang, pay.invoice_product.currency_amount, pay.invoice.invoice_number_prefix
   FROM ts.national_standard
   INNER JOIN ts.type_natstd ON ts.national_standard.type_natstd_id = ts.type_natstd.type_natstd_id
   INNER JOIN ts.natstandard_document
@@ -223,6 +247,7 @@
 (def standard-type {:bas {:sql bas-standards-sql :template bas}
                     :iec {:sql iec-standards-sql :template iec}
                     :iso {:sql iso-standards-sql :template iso}
+                    :etsi {:sql iso-standards-sql :template etsi}
                     :jus {:sql jus-standards-sql :template jus}})
 
 
@@ -265,7 +290,7 @@
 (defn zero-price [std]
   (and (= (:p_price std) 0.0)
        (not (or (.contains (:standard_code_old std) "/AC")
-              (.contains (:standard_code_old std) "Cor")))))
+                (.contains (:standard_code_old std) "Cor")))))
 
 (defn prepare-stavke []
   (->> ponude-stavke
@@ -293,16 +318,16 @@
          (filter #(type (:type %)))
          (pmap #(merge % {:p_type p_type}))
          (S/transform [S/ALL :old_id] #(if (and % (= type bas))
-                                        (modify-id %)
-                                        (when (= type jus) %)))
+                                         (modify-id %)
+                                         (when (= type jus) %)))
          (S/transform [S/ALL :currency_id] #(if % 2 1))
          (S/transform [S/ALL :p_discount] #(if % % 0.0))
          (code-corrections :standard_code_old))))
 
 (defn smis-standards []
   (->>
-     (get_data smis-conn (eval ((std-type) :sql)))
-     (code-corrections :standard_code)))
+    (get_data smis-conn (eval ((std-type) :sql)))
+    (code-corrections :standard_code)))
 
 
 (defn smis-standardoteka-by-standard-code []
@@ -358,7 +383,7 @@
 (defn all-jus []
   (reset! choice :jus)
   (->>
-     (clojure.set/join (get_data smis-conn (eval ((std-type) :sql))) (all-ids) {:standard_id :old_id})))
+    (clojure.set/join (get_data smis-conn (eval ((std-type) :sql))) (all-ids) {:standard_id :old_id})))
 ;(pmap #(clojure.set/rename-keys % {:id :invoice_product_id}))))
 
 (defn all-stds []
@@ -413,19 +438,26 @@
         (j/execute! smis-conn)))))
 
 
+(comment
+  (j/execute! smis-conn (sql/format (delete-from :pay.invoice)))
+  (insert-invoices)
+  (insert-invoice-products))
+
 ;--------------------------------------------------------------------------------------------
 ;REPORTS
 ;----------------------------------------------
 
-(def date-range ["2018-06-30" "2018-09-30"])
-
+(def date-range
+  "[exclusive inclusive]"
+  ["2018-04-01" "2019-03-31"])
 
 (defn sources [type]
   "if type = nill lists all sources"
   (->>
-    (if type (filter #(= (val %) type) all-sources) all-sources)
+    (if type (filter #((val %) type) all-sources) all-sources)
     (map first)
     (into #{})))
+
 
 (defn filter-dates [date]
   (t/within?
@@ -434,6 +466,10 @@
       (c/from-string (second date-range)))
     (c/to-date-time date)))
 
+(defn product-discount [product]
+  (if (:discount product)
+      (- 1 (/ (:discount product) 100))
+      1))
 
 (defn agregate-product-data [product-data]
   (reduce
@@ -446,12 +482,25 @@
         (conj (x 4) (.format (java.text.SimpleDateFormat. "dd/MM/yyyy") (:date_order y)))
         (conj (x 5) (double (if (:p_price y) (:p_price y) 0)))
         (conj (x 6) (double (if (:currency_amount y) (:currency_amount y) 0)))
-        (int (+ (x 7) (:p_quantity y)))
-        (double (+ (x 8) (* (:p_quantity y)
+        (conj (x 7) (if (= (if (:currency_id y) (:currency_id y) 1) 1) "KM" "EURO"))
+        (int (+ (x 8) (:p_quantity y)))
+        (double (+ (x 9) (* (:p_quantity y)
                             (:p_price y)
-                            (- 1 (/ (:p_discount y) 100)))))))
-    [[] [] [] [] [] [] [] 0 0]
+                           (product-discount y))))))
+    [[] [] [] [] [] [] [] [] 0 0]
     product-data))
+
+
+(defn sales-by-department [department]
+  (->>
+    (get_data smis-conn all-sales)
+    (filter #(filter-dates (:date_order %)))
+    (reduce #(if (department (:invoice_number_prefix %2))
+               (+ %1 (* (:p_quantity %2)
+                       (:p_price %2)
+                       (product-discount %2)))
+               %1)
+      0.0)))
 
 
 (defn group-sales-data [data]
@@ -461,7 +510,9 @@
     (sort-by #(last (butlast %)) >)))
 
 (defn bas-report [type]
-  ":iec, :iso nill -> all stds"
+  ":iec, :iso
+  nill -> all stds"
+
   (->>
     (get_data smis-conn all-bas-sales-sql)
     (filter #((sources type) (:source %)))
@@ -480,10 +531,6 @@
     (filter #(filter-dates (:date_order %)))
     group-sales-data))
 
-(def other-types
-  {:bs  #{"BS" "CWA"}
-   :din #{"DIN" "AD"}})
-
 
 (defn other-report [type]
   ":bs, :din"
@@ -492,7 +539,7 @@
     (filter #(:p_name %))
     (pmap #(merge % {:source (first (str/split (:p_name %) #" "))
                      :p_id   (:p_name %)}))
-    (filter #((type other-types) (:source %)))
+    (filter #(type (:source %)))
     (filter #(filter-dates (:date_order %)))
     group-sales-data))
 
@@ -508,35 +555,88 @@
       (let [[name data] report
             sheet (add-sheet! wb name)]
         (add-rows! sheet
-                   (into [["Oznaka" "Jezik" "Broj racuna" "Datum" "Cijena KM" "Cijan Dev" "Kolicina" "Iznos"]]
+                   (into [["Oznaka" "Jezik" "Broj racuna" "Datum" "Cijena KM" "Cijan Dev" "Valuta" "Kolicina" "Iznos"]]
                          (prepare-report data)))))
     (save-workbook! "Izvjestaji o prodaji.xlsx" wb)))
 
 
 
-
-(defn ino-repors []
+(defn ino-reports []
   (let [reports [["BAS-IEC" (bas-report :iec)]
                  ["IEC" (iec-report)]
                  ["BAS-ISO" (bas-report :iso)]
                  ["ISO" (iso-report)]
-                 ["BS" (other-report :bs)]
-                 ["DIN" (other-report :din)]]]
+                 ["BS" (other-report bs)]
+                 ["DIN" (other-report din)]
+                 ["BAS DIN" (bas-report :din)]]]
+    (prepare-excel reports)))
+
+(defn deja-reports []
+  (let [reports [["Mali izvjestaj" (bas-report :iso)]
+                 ["Veliki izvjestaj" (bas-report :iso-report)]]]
+    (prepare-excel reports)))
+
+(defn std-reports []
+  (let [reports [["Svi standardi" (bas-report :all)]]]
     (prepare-excel reports)))
 
 
+
+(defn  average-price [type]
+  (->>(bas-report type)
+      (map #(take-last 2 %))
+      (map #(/ (last %) (first %)))
+      ((juxt #(apply + %) #(count %)))
+      (apply /)))
+
+
+(defn average-invoice []
+  (->> (get_data smis-conn all-sales)
+       (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix
+                             :invoice_id :is_valid :currency_id :p_name]))
+       (filter #(= "04" (:invoice_number_prefix %)))
+       (filter :is_valid)
+       (group-by :invoice_id)
+       (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))
+       (map #(apply + (last %)))
+       ((juxt #(apply + %) #(count %)))
+       (apply /)))
+
+(defn count-stds [type]
+  (->>
+    (bas-report type)
+    (map #(last (butlast %)))
+    (apply +)))
+
 (comment
 
-  (insert-invoices)
+  ; update data
+  ;--------------------------------------------------------------------------------------------
 
+  (j/execute! smis-conn (sql/format (delete-from :pay.invoice)))
+  (insert-invoices)
   (insert-invoice-products)
 
   ;reports
   ;--------------------------------------------------------------------------------------------
 
-  (ino-repors)
+  (ino-reports)
+
+  (std-reports)
+
+  (deja-reports)
+
+  (bas-report :all)
+
+  (average-price :all)
+
+  (prepare-excel [["ASTM" (other-report astm)]]) ; 01.04. - 31.03.
 
   ;--------------------------------------------------------------------------------------------
+
+  (prepare-excel [["BAS-IEC" (bas-report :iec)]
+                  ["IEC" (iec-report)]
+                  ["BAS-ISO" (bas-report :iso)]])
 
   (prepare-report (iec-report))
 
@@ -545,6 +645,8 @@
   (prepare-report (iso-report))
 
   (prepare-report (bas-report :iso))
+
+  (prepare-report (bas-report :iso-report))
 
   (prepare-report (other-report :bs))
 
