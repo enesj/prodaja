@@ -17,11 +17,47 @@
 (def choice (atom :bas))
 
 
+(def origins)
+
+[["CEN" 1]
+ ["CLC" 2]
+ ["IEC" 3]
+ ["ISO" 4]
+ ["ETSI" 5]
+ ["ISO/IEC" 6]
+ ["CEN/CLC" 7]
+ ["BAS" 8]
+ ["ECISS" 9]
+ ["AECMA" 10]
+ ["ASD" 11]
+ ["CEN & ISO" 12]
+ ["CLC & IEC" 13]
+ ["CEN ,CLC & ISO" 14]
+ ["CEN, CLC, ISO & IEC" 15]
+ ["DIN" 16]
+ ["ISO/IEEE" 17]
+ ["BSI" 19]
+ ["ASD-STAN" 20]
+ ["ASTM" 21]
+ ["ISO/IEC/IEEE" 22]
+ ["ETSI EN" 23]
+ ["CEN/CLC & IEC" 24]
+ ["EN IEC/IEEE" 25]]
+
+(defn sources-origins []
+  (->>
+    (get_data smis-conn all-bas-sales-sql)
+    (filter #((sources :all) (:source %)))
+    (filter #(filter-dates (:date_order %)))
+    (map (juxt :origin :source))
+    (into #{})))
+
 (def iso #{"ISO"
            "ISO/ASTM"
            "ISO/IEC"
            "ISO/TR"
-           "ISO/TS"})
+           "ISO/TS"
+           "PAS"})
 
 (def iec #{"IEC"
            "IEC Guide"
@@ -50,6 +86,22 @@
 (def astm  #{"ASTM"})
 
 (def din #{"DIN" "AD"})
+
+(def srps #{ "SRPS"})
+
+(def hrn #{ "HRN"})
+
+(def jus #{"JUS"})
+
+(def bas #{"BAS"})
+
+
+(def originalni-svi #{"iso" "EN" "DIN" "ASTM" "BS" "OHSAS" "IEEE" "HRN"  "SRPS" "PAS" "VDI" "VDE" "VDA" "DVGW" "CWA" "SEP"})
+
+
+
+
+
 
 (def all-sources {"BAS  DIN"           #{:all, :din,}
                   "BAS  ETS"           #{:all, :etsi,}
@@ -122,18 +174,6 @@
 
 
 
-(def jus #{"JUS"})
-
-(def bas #{"BAS"})
-
-;(defn std-types [type]
-;  (cond
-;    (bas type) 1
-;    (iso type) 2
-;    (iec type) 3
-;    (jus type) 5
-;    :else 4))
-
 (defn std-types-kw [type]
   (case type
     :bas 1
@@ -201,9 +241,10 @@
 
 (def all-bas-sales-sql
   "SELECT pay.invoice.date_order, pay.invoice.currency_id, pay.invoice.is_valid, pay.invoice_product.p_name, pay.invoice_product.p_quantity, pay.invoice.invoice_number,
-  pay.invoice_product.p_price, pay.invoice_product.p_discount, pay.invoice_product.p_id, ts.type_natstd.name as source, ts.natstandard_document.national_standard_id as standard_id,
+  pay.invoice_product.p_price, pay.invoice_product.p_discount, pay.invoice_product.p_id, ts.type_natstd.name as source, ts.natstandard_document.national_standard_id as standard_id, ts.source.name as origin,
   ts.language.name as lang, pay.invoice_product.currency_amount, pay.invoice.invoice_number_prefix
   FROM ts.national_standard
+  INNER JOIN ts.source  ON ts.national_standard.source_id = ts.source.source_id
   INNER JOIN ts.type_natstd ON ts.national_standard.type_natstd_id = ts.type_natstd.type_natstd_id
   INNER JOIN ts.natstandard_document
   INNER JOIN ts.language ON ts.natstandard_document.language_id = ts.language.language_id
@@ -242,6 +283,17 @@
    INNER JOIN
    pay.invoice ON pay.invoice_product.invoice_id = pay.invoice.invoice_id
    WHERE (pay.invoice.is_valid = 1) AND (pay.invoice_product.p_type = 4)")
+
+
+(defn get-org-prefixes []
+  (->>
+    (get_data smis-conn all-other-sales)
+    (filter #(:p_name %))
+    (pmap #(merge % {:source (first (str/split (:p_name %) #" "))
+                     :p_id   (:p_name %)}))
+    (mapv :source)
+    (group-by identity)
+    (map  first)))
 
 
 (def standard-type {:bas {:sql bas-standards-sql :template bas}
@@ -449,7 +501,7 @@
 
 (def date-range
   "[exclusive inclusive]"
-  ["2018-04-01" "2019-03-31"])
+  ["2019-01-01" "2019-04-31"])
 
 (defn sources [type]
   "if type = nill lists all sources"
@@ -509,15 +561,32 @@
     (map #(agregate-product-data (second %)))
     (sort-by #(last (butlast %)) >)))
 
-(defn bas-report [type]
+(defn bas-report [source]
   ":iec, :iso
   nill -> all stds"
-
   (->>
     (get_data smis-conn all-bas-sales-sql)
-    (filter #((sources type) (:source %)))
+    (filter #((sources source) (:source %)))
     (filter #(filter-dates (:date_order %)))
     group-sales-data))
+
+(defn bas-report-orgin [origin]
+  ":iec, :iso
+  nill -> all stds"
+  (->>
+    (get_data smis-conn all-bas-sales-sql)
+    (filter #(origin (:origin %)))
+    (filter #(filter-dates (:date_order %)))
+    group-sales-data))
+
+(defn bas-report-orgin-source [origin source]
+  (->>
+    (get_data smis-conn all-bas-sales-sql)
+    (filter #(origin (:origin %)))
+    (filter #((sources source) (:source %)))
+    (filter #(filter-dates (:date_order %)))
+    group-sales-data))
+
 
 (defn iec-report []
   (->>
@@ -532,7 +601,7 @@
     group-sales-data))
 
 
-(defn other-report [type]
+(defn other-reports [type]
   ":bs, :din"
   (->>
     (get_data smis-conn all-other-sales)
@@ -565,13 +634,14 @@
   (let [reports [["BAS-IEC" (bas-report :iec)]
                  ["IEC" (iec-report)]
                  ["BAS-ISO" (bas-report :iso)]
+                 ["BAS-ISO-SVI" (bas-report :iso-report)]
                  ["ISO" (iso-report)]
-                 ["BS" (other-report bs)]
-                 ["DIN" (other-report din)]
+                 ["BS" (other-reports bs)]
+                 ["DIN" (other-reports din)]
                  ["BAS DIN" (bas-report :din)]]]
     (prepare-excel reports)))
 
-(defn deja-reports []
+(defn deja-iso-reports []
   (let [reports [["Mali izvjestaj" (bas-report :iso)]
                  ["Veliki izvjestaj" (bas-report :iso-report)]]]
     (prepare-excel reports)))
@@ -579,7 +649,6 @@
 (defn std-reports []
   (let [reports [["Svi standardi" (bas-report :all)]]]
     (prepare-excel reports)))
-
 
 
 (defn  average-price [type]
@@ -608,6 +677,43 @@
     (map #(last (butlast %)))
     (apply +)))
 
+
+(defn iso-quartal []
+  "ukupan borj prodatih bas-iso standarda i ukupan prihod u KM za kvartalni izvjestaj"
+  (->>
+    (bas-report :iso)
+    (mapv #(select-keys % [8 9]))
+    (mapv vals)
+    (reduce #(vector (+ (first %1) (first %2))
+                     (+ (second %1) (second %2))) [0 0])))
+
+(defn bas-quartal []
+  "ukupan borj prodatih bas standarda i ukupan prihod u KM za kvartalni izvjestaj"
+  (->>
+    (bas-report :all)
+    (mapv #(select-keys % [8 9]))
+    (mapv vals)
+    (reduce #(vector (+ (first %1) (first %2))
+                     (+ (second %1) (second %2))) [0 0])))
+
+
+
+(defn godisnji-izvjestaj-originalni
+  "za Dejanu"
+  []
+  (let [reports [["BAS" (bas-report :all)]
+                 ["IEC" (iec-report)]
+                 ["ISO" (iso-report)]
+                 ["Original stds other" (other-reports originalni-svi)]]]
+    (prepare-excel reports)))
+
+(defn en-clc
+  "za Sanju kvartalni"
+  []
+  (let [reports [["EN CLC" (bas-report-orgin-source #{"CLC" "CLC & IEC"} :cen)]]]
+    (prepare-excel reports)))
+
+
 (comment
 
   ; update data
@@ -624,13 +730,13 @@
 
   (std-reports)
 
-  (deja-reports)
+  (deja-iso-reports)
 
   (bas-report :all)
 
   (average-price :all)
 
-  (prepare-excel [["ASTM" (other-report astm)]]) ; 01.04. - 31.03.
+  (prepare-excel [["ASTM" (other-reports astm)]]) ; 01.04. - 31.03.
 
   ;--------------------------------------------------------------------------------------------
 
@@ -648,6 +754,6 @@
 
   (prepare-report (bas-report :iso-report))
 
-  (prepare-report (other-report :bs))
+  (prepare-report (other-reports :bs))
 
-  (prepare-report (other-report :din)))
+  (prepare-report (other-reports :din)))
