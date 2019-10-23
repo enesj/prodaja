@@ -26,20 +26,20 @@
   (get_data standardoteka-conn ponude-stavke-sql))
 
 (defn all-ids []
-  (->> ponude-stavke
-       (S/transform [S/ALL] (juxt :stavka :standardid :id :vrsta :status))
-       (remove (comp nil? first))
-       (remove #(= "" (first %)))
-       (remove #(not= 3 (last %)))
-       (S/transform [S/ALL S/FIRST] str/trim)
-       distinct
-       (S/transform S/ALL #(take 3 %))
-       (filter #(= "BAS" (apply str (take 3 (first %)))))
-       (group-by first)
-       (sort-by first)
-       (S/transform [S/ALL S/LAST] #(sort-by second %))
-       (map #(vector (count (second %))  (second %)))
-       (remove #(= (first %) 1))))
+      (->> ponude-stavke
+           (S/transform [S/ALL] (juxt :stavka :standardid :id :vrsta :status))
+           (remove (comp nil? first))
+           (remove #(= "" (first %)))
+           (remove #(not= 3 (last %)))
+           (S/transform [S/ALL S/FIRST] str/trim)
+           distinct
+           (S/transform S/ALL #(take 3 %))
+           (filter #(= "BAS" (apply str (take 3 (first %)))))
+           (group-by first)
+           (sort-by first)
+           (S/transform [S/ALL S/LAST] #(sort-by second %))
+           (map #(vector (count (second %)) (second %)))
+           (remove #(= (first %) 1))))
 
 
 
