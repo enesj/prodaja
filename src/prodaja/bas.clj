@@ -17,32 +17,31 @@
 (def choice (atom :bas))
 
 
-(def origins)
-
-[["CEN" 1]
- ["CLC" 2]
- ["IEC" 3]
- ["ISO" 4]
- ["ETSI" 5]
- ["ISO/IEC" 6]
- ["CEN/CLC" 7]
- ["BAS" 8]
- ["ECISS" 9]
- ["AECMA" 10]
- ["ASD" 11]
- ["CEN & ISO" 12]
- ["CLC & IEC" 13]
- ["CEN ,CLC & ISO" 14]
- ["CEN, CLC, ISO & IEC" 15]
- ["DIN" 16]
- ["ISO/IEEE" 17]
- ["BSI" 19]
- ["ASD-STAN" 20]
- ["ASTM" 21]
- ["ISO/IEC/IEEE" 22]
- ["ETSI EN" 23]
- ["CEN/CLC & IEC" 24]
- ["EN IEC/IEEE" 25]]
+(def origins
+  [["CEN" 1]
+   ["CLC" 2]
+   ["IEC" 3]
+   ["ISO" 4]
+   ["ETSI" 5]
+   ["ISO/IEC" 6]
+   ["CEN/CLC" 7]
+   ["BAS" 8]
+   ["ECISS" 9]
+   ["AECMA" 10]
+   ["ASD" 11]
+   ["CEN & ISO" 12]
+   ["CLC & IEC" 13]
+   ["CEN ,CLC & ISO" 14]
+   ["CEN, CLC, ISO & IEC" 15]
+   ["DIN" 16]
+   ["ISO/IEEE" 17]
+   ["BSI" 19]
+   ["ASD-STAN" 20]
+   ["ASTM" 21]
+   ["ISO/IEC/IEEE" 22]
+   ["ETSI EN" 23]
+   ["CEN/CLC & IEC" 24]
+   ["EN IEC/IEEE" 25]])
 
 
 
@@ -454,8 +453,8 @@
             (let [{:keys [:id, :status :broj, :primaorganizacija, :primaadresa, :popust, :datumprijema,
                           :storno, :euro, :datumprijema, :sluzba :dds_base :datumslanja]} x]
                  (->>
-                   [id, 2, broj, 76, primaorganizacija, primaadresa, popust, (if datumprijema datumprijema datumslanja), (if storno 0 1),
-                    (if euro 2 1), (if datumprijema datumprijema datumslanja), (sluzbe sluzba), 0]
+                   [id, 2, broj, 76, primaorganizacija, primaadresa, popust, datumslanja , (if storno 0 1),
+                    (if euro 2 1), datumprijema, (sluzbe sluzba), 0]
                    (S/transform (S/nthpath 4) #(when % (->> (str/replace % #"\s+" " ")
                                                             (take 100)
                                                             (apply str)))))))
@@ -497,7 +496,7 @@
 
 (def date-range
   "[exclusive inclusive]"
-  ["2019-07-01" "2019-09-30"])
+  ["2019-01-01" "2019-12-31"])
 
 (defn sources [type]
       "if type = nill lists all sources"
@@ -656,6 +655,17 @@
       (let [reports [["Svi standardi" (bas-report :all)]]]
            (prepare-excel reports name)))
 
+(defn total-sales []
+  (->> (get_data smis-conn all-sales)
+       (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix
+                             :invoice_id :is_valid :currency_id :date_order :p_name]))
+       ;(filter #(= "04" (:invoice_number_prefix %)))
+       (filter :is_valid)
+       (filter #(filter-dates (:date_order %)))
+       (group-by :invoice_id)
+       (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))
+       (map #(apply + (last %)))
+       (apply +)))
 
 (defn average-price [type]
       (->> (bas-report type)
