@@ -117,6 +117,7 @@
                   "BAS DIN VDE"        #{:all, :din,}
                   "BAS EG"             #{:all, :etsi,}
                   "BAS EN"             #{:all, :cen,}
+                  "BAS EN IEC"         #{:all, :cen, :iec}
                   "BAS EN ISO"         #{:all, :cen, :iso-report}
                   "BAS EN ISO/IEC"     #{:all, :cen, :iso-report}
                   "BAS ENV"            #{:all, :cen,}
@@ -163,7 +164,8 @@
                   "ISO/DTS"            #{:all, :iso, :no-bas}
                   "ISO/IEC FDIS"       #{:all, :iso, :no-bas}
                   "ISO/NP"             #{:all, :iso, :no-bas}
-                  "ISO/WD"             #{:all, :iso :no-bas}})
+                  "ISO/WD"             #{:all, :iso :no-bas}
+                  "SRPS"               #{:all, :srps :no-bas}})
 
 
 
@@ -235,7 +237,7 @@
   WHERE Ponude.status = 3 AND Ponude.Storno = 0")
 
 (def all-bas-sales-sql
-  "SELECT pay.invoice.date_order, pay.invoice.currency_id, pay.invoice.is_valid, pay.invoice_product.p_name, pay.invoice_product.p_quantity, pay.invoice.invoice_number,
+  "SELECT pay.invoice.date_order, pay.invoice.currency_id, pay.invoice.is_valid, pay.invoice_product.p_name, pay.invoice_product.p_quantity, pay.invoice.invoice_number, pay.invoice.type_delivery_id, pay.invoice.type_delivery_name,
   pay.invoice_product.p_price, pay.invoice_product.p_discount, pay.invoice_product.p_id, ts.type_natstd.name as source, ts.natstandard_document.national_standard_id as standard_id, ts.source.name as origin,
   ts.language.name as lang, pay.invoice_product.currency_amount, pay.invoice.invoice_number_prefix
   FROM ts.national_standard
@@ -248,6 +250,15 @@
   INNER JOIN pay.invoice_product ON pay.invoice.invoice_id = pay.invoice_product.invoice_id
   ON  ts.natstandard_document.natstandard_document_id = pay.invoice_product.p_id
   WHERE (pay.invoice.is_valid = 1)")
+
+(def all-standard-sales
+  "SELECT pay.invoice_product.p_type, pay.invoice.date_order, pay.invoice.currency_id, pay.invoice.is_valid, pay.invoice_product.p_quantity, pay.invoice.invoice_number,
+   pay.invoice_product.p_price, pay.invoice_product.p_discount, pay.invoice_product.p_name, pay.invoice_product.p_id, pay.invoice.type_delivery_id,
+   pay.invoice_product.currency_amount
+   FROM pay.invoice_product
+   INNER JOIN
+   pay.invoice ON pay.invoice_product.invoice_id = pay.invoice.invoice_id
+   WHERE (pay.invoice.is_valid = 1) AND invoice_number_prefix = '04'")
 
 (def all-iec-sales-sql
   "SELECT pay.invoice_product.p_type, pay.invoice.date_order, pay.invoice.currency_id, pay.invoice.is_valid, pay.invoice_product.p_quantity, pay.invoice.invoice_number,
@@ -277,7 +288,7 @@
    FROM pay.invoice_product
    INNER JOIN
    pay.invoice ON pay.invoice_product.invoice_id = pay.invoice.invoice_id
-   WHERE (pay.invoice.is_valid = 1) AND (pay.invoice_product.p_type = 4)")
+   WHERE (pay.invoice.is_valid = 1) AND ((pay.invoice_product.p_type = 4) OR (pay.invoice_product.p_type = 0))")
 
 
 (defn get-org-prefixes []
@@ -306,197 +317,197 @@
 (defn bas-stadards-products []
       (get_data smis-conn bas-standards-products-sql))
 
-(def ponude-stavke
-  (get_data standardoteka-conn ponude-stavke-sql))
+;(def ponude-stavke
+;  (get_data standardoteka-conn ponude-stavke-sql))
+;
+;(defn modify-stavka [std-code]
+;      (let [[stavka lang] (str/split (str/trim (:standard_code_old std-code)) #"\(")
+;            lang (if lang
+;                   (str/trim (first (str/split lang #"\)")))
+;                   "")
+;            stavka (-> (str/trim stavka)
+;                       (str/replace #"(?i)BAS Katalog" "Katalog")
+;                       (str/replace #"  " " "))
+;            type (first (str/split stavka #" "))]
+;           (zipmap [:standard_code_old :lang :type] [stavka lang type])))
+;
+;
+;(defn modify-id [id]
+;      (let [std-id (read-string id)]
+;           (if (and std-id (< std-id 63000)) std-id nil)))
+;
+;(defn code-corrections [code-key std-codes]
+;      (->> std-codes
+;           (S/transform [S/ALL code-key] #(->
+;                                            (str/replace % #"Cor " "Cor")
+;                                            (str/replace #"Amd " "A")
+;                                            (str/replace #"Cor:" "Cor1:")
+;                                            (str/replace #" S1:" ":")
+;                                            (str/replace #": 2" ":2")
+;                                            (str/replace #"Vodič " "Guide ")))))
+;(defn zero-price [std]
+;      (and (= (:p_price std) 0.0)
+;           (not (or (.contains (:standard_code_old std) "/AC")
+;                    (.contains (:standard_code_old std) "Cor")))))
+;
+;(defn prepare-stavke []
+;      (->> ponude-stavke
+;           (remove #(or (empty? (:standard_code_old %)) (zero-price %)))
+;           (pmap #(merge % (modify-stavka %)))))
+;
+;(defn other-products []
+;      "(take 500) - limit name to 500 chars"
+;      (->> (prepare-stavke)
+;           (filter #((complement (set (concat bas iso iec jus))) (:type %)))
+;           (S/transform [S/ALL :currency_id] #(if % 2 1))
+;           (S/transform [S/ALL :p_discount] #(if % % 0.0))
+;           (pmap #(merge % {:p_type 4}))
+;           (pmap #(clojure.set/rename-keys % {:standard_code_old :p_name,}))
+;           (S/transform [S/ALL :p_name] #(when % (->> (str/replace % #"\s+" " ")
+;                                                      (take 500)
+;                                                      (apply str))))))
+;
+;(defn all-ids []
+;      "{standard-code standard-id
+;        .....}"
+;      (let [type ((std-type) :template)
+;            p_type (std-types-kw @choice)]
+;           (->> (prepare-stavke)
+;                (filter #(type (:type %)))
+;                (pmap #(merge % {:p_type p_type}))
+;                (S/transform [S/ALL :old_id] #(if (and % (= type bas))
+;                                                (modify-id %)
+;                                                (when (= type jus) %)))
+;                (S/transform [S/ALL :currency_id] #(if % 2 1))
+;                (S/transform [S/ALL :p_discount] #(if % % 0.0))
+;                (code-corrections :standard_code_old))))
 
-(defn modify-stavka [std-code]
-      (let [[stavka lang] (str/split (str/trim (:standard_code_old std-code)) #"\(")
-            lang (if lang
-                   (str/trim (first (str/split lang #"\)")))
-                   "")
-            stavka (-> (str/trim stavka)
-                       (str/replace #"(?i)BAS Katalog" "Katalog")
-                       (str/replace #"  " " "))
-            type (first (str/split stavka #" "))]
-           (zipmap [:standard_code_old :lang :type] [stavka lang type])))
-
-
-(defn modify-id [id]
-      (let [std-id (read-string id)]
-           (if (and std-id (< std-id 63000)) std-id nil)))
-
-(defn code-corrections [code-key std-codes]
-      (->> std-codes
-           (S/transform [S/ALL code-key] #(->
-                                            (str/replace % #"Cor " "Cor")
-                                            (str/replace #"Amd " "A")
-                                            (str/replace #"Cor:" "Cor1:")
-                                            (str/replace #" S1:" ":")
-                                            (str/replace #": 2" ":2")
-                                            (str/replace #"Vodič " "Guide ")))))
-(defn zero-price [std]
-      (and (= (:p_price std) 0.0)
-           (not (or (.contains (:standard_code_old std) "/AC")
-                    (.contains (:standard_code_old std) "Cor")))))
-
-(defn prepare-stavke []
-      (->> ponude-stavke
-           (remove #(or (empty? (:standard_code_old %)) (zero-price %)))
-           (pmap #(merge % (modify-stavka %)))))
-
-(defn other-products []
-      "(take 500) - limit name to 500 chars"
-      (->> (prepare-stavke)
-           (filter #((complement (set (concat bas iso iec jus))) (:type %)))
-           (S/transform [S/ALL :currency_id] #(if % 2 1))
-           (S/transform [S/ALL :p_discount] #(if % % 0.0))
-           (pmap #(merge % {:p_type 4}))
-           (pmap #(clojure.set/rename-keys % {:standard_code_old :p_name,}))
-           (S/transform [S/ALL :p_name] #(when % (->> (str/replace % #"\s+" " ")
-                                                      (take 500)
-                                                      (apply str))))))
-
-(defn all-ids []
-      "{standard-code standard-id
-        .....}"
-      (let [type ((std-type) :template)
-            p_type (std-types-kw @choice)]
-           (->> (prepare-stavke)
-                (filter #(type (:type %)))
-                (pmap #(merge % {:p_type p_type}))
-                (S/transform [S/ALL :old_id] #(if (and % (= type bas))
-                                                (modify-id %)
-                                                (when (= type jus) %)))
-                (S/transform [S/ALL :currency_id] #(if % 2 1))
-                (S/transform [S/ALL :p_discount] #(if % % 0.0))
-                (code-corrections :standard_code_old))))
-
-(defn smis-standards []
-      (->>
-        (get_data smis-conn (eval ((std-type) :sql)))
-        (code-corrections :standard_code)))
-
-
-(defn smis-standardoteka-by-standard-code []
-      (clojure.set/join (all-ids) (smis-standards) {:standard_code_old :standard_code}))
-
-
-(defn smis-standardoteka-by-standard-id []
-      (->>
-        (clojure.set/join (smis-standards) (all-ids) {:standard_id :old_id})
-        (filter #(not= (:standard_code_old %) (:standard_code %)))))
-
-(defn bas-all []
-      (->>
-        (clojure.set/union (smis-standardoteka-by-standard-code) (smis-standardoteka-by-standard-id))))
-
-
-(defn bas-products-ids []
-      (->>
-        (clojure.set/join (bas-stadards-products) (bas-all) {:standard_id :standard_id})
-        (group-by :invoice_product_id)
-        (pmap (comp first second))))
-
-
-(def lang-variants
-  {"BAS EN ISO 9001:2017" ["bs,en" "hr,en"]
-   "BAS EN ISO 9000:2017" ["bs,en" "hr,en"]
-   "BAS EN ISO 707:2010"  ["bs" "en"]})
-
-
-
-(defn ok-ids []
-      (->>
-        (smis-standardoteka-by-standard-code)
-        (pmap #(clojure.set/rename-keys %
-                                        {:standard_id :p_id}))))
-;:id :invoice_product_id}))))
-
-(defn all-bas []
-      (reset! choice :bas)
-      (bas-products-ids))
-
-(defn all-iec []
-      (reset! choice :iec)
-      (->>
-        (ok-ids)
-        (group-by :invoice_product_id)
-        (pmap (comp first second))))
-
-(defn all-iso []
-      (reset! choice :iso)
-      (ok-ids))
-
-(defn all-jus []
-      (reset! choice :jus)
-      (->>
-        (clojure.set/join (get_data smis-conn (eval ((std-type) :sql))) (all-ids) {:standard_id :old_id})))
-;(pmap #(clojure.set/rename-keys % {:id :invoice_product_id}))))
-
-(defn all-stds []
-      (->>
-        (concat (all-bas) (all-iec) (all-iso) (all-jus) (other-products))
-        (pmap #(clojure.set/rename-keys % {:standard_code :p_name,}))
-        (pmap #(update-in % [:p_name] (fn [x] (str x " (" (:lang %) ")"))))
-        (S/transform [S/ALL :p_name] #(when % (->> (str/replace % #"\s+" " ")
-                                                   (take 500)
-                                                   (apply str))))
-        (pmap #(select-keys %
-                            [:invoice_id, :p_id, :p_name, :p_type :currency_amount
-                             :p_quantity, :p_price :currency_id :p_discount]))))
-
-
-(defn invoice-values []
-      ;(sort-by #(nth % 7)
-      (mapv
-        (fn [x]
-            (let [{:keys [:id, :status :broj, :primaorganizacija, :primaadresa, :popust, :datumprijema,
-                          :storno, :euro, :datumprijema, :sluzba :dds_base :datumslanja]} x]
-                 (->>
-                   [id, 2, broj, 76, primaorganizacija, primaadresa, popust, datumslanja , (if storno 0 1),
-                    (if euro 2 1), datumprijema, (sluzbe sluzba), 0]
-                   (S/transform (S/nthpath 4) #(when % (->> (str/replace % #"\s+" " ")
-                                                            (take 100)
-                                                            (apply str)))))))
-        (get_data standardoteka-conn select-ponude)))
+;(defn smis-standards []
+;      (->>
+;        (get_data smis-conn (eval ((std-type) :sql)))
+;        (code-corrections :standard_code)))
+;
+;
+;(defn smis-standardoteka-by-standard-code []
+;      (clojure.set/join (all-ids) (smis-standards) {:standard_code_old :standard_code}))
+;
+;
+;(defn smis-standardoteka-by-standard-id []
+;      (->>
+;        (clojure.set/join (smis-standards) (all-ids) {:standard_id :old_id})
+;        (filter #(not= (:standard_code_old %) (:standard_code %)))))
+;
+;(defn bas-all []
+;      (->>
+;        (clojure.set/union (smis-standardoteka-by-standard-code) (smis-standardoteka-by-standard-id))))
+;
+;
+;(defn bas-products-ids []
+;      (->>
+;        (clojure.set/join (bas-stadards-products) (bas-all) {:standard_id :standard_id})
+;        (group-by :invoice_product_id)
+;        (pmap (comp first second))))
+;
+;
+;(def lang-variants
+;  {"BAS EN ISO 9001:2017" ["bs,en" "hr,en"]
+;   "BAS EN ISO 9000:2017" ["bs,en" "hr,en"]
+;   "BAS EN ISO 707:2010"  ["bs" "en"]})
 
 
 
-(defn insert-invoices []
-      (let [value-groups (partition-all 50 (invoice-values))]
-           (doseq [values-group value-groups]
-                  (->>
-                    (-> (insert-into :pay.invoice)
-                        (columns :invoice_id, :type_invoice_id, :invoice_number, :user_profile_id, :c_name, :c_address,
-                                 :discount, :date_order, :is_valid, :currency_id, :date_payment :invoice_number_prefix :dds_base)
-                        (values values-group)
-                        sql/format)
-                    (S/transform S/FIRST #(str "SET IDENTITY_INSERT pay.invoice ON; " %))
-                    (j/execute! smis-conn)))))
+;(defn ok-ids []
+;      (->>
+;        (smis-standardoteka-by-standard-code)
+;        (pmap #(clojure.set/rename-keys %
+;                                        {:standard_id :p_id}))))
+;;:id :invoice_product_id}))))
+;
+;(defn all-bas []
+;      (reset! choice :bas)
+;      (bas-products-ids))
+;
+;(defn all-iec []
+;      (reset! choice :iec)
+;      (->>
+;        (ok-ids)
+;        (group-by :invoice_product_id)
+;        (pmap (comp first second))))
+;
+;(defn all-iso []
+;      (reset! choice :iso)
+;      (ok-ids))
+;
+;(defn all-jus []
+;      (reset! choice :jus)
+;      (->>
+;        (clojure.set/join (get_data smis-conn (eval ((std-type) :sql))) (all-ids) {:standard_id :old_id})))
+;;(pmap #(clojure.set/rename-keys % {:id :invoice_product_id}))))
+
+;(defn all-stds []
+;      (->>
+;        (concat (all-bas) (all-iec) (all-iso) (all-jus) (other-products))
+;        (pmap #(clojure.set/rename-keys % {:standard_code :p_name,}))
+;        (pmap #(update-in % [:p_name] (fn [x] (str x " (" (:lang %) ")"))))
+;        (S/transform [S/ALL :p_name] #(when % (->> (str/replace % #"\s+" " ")
+;                                                   (take 500)
+;                                                   (apply str))))
+;        (pmap #(select-keys %
+;                            [:invoice_id, :p_id, :p_name, :p_type :currency_amount
+;                             :p_quantity, :p_price :currency_id :p_discount]))))
+;
+;
+;(defn invoice-values []
+;      ;(sort-by #(nth % 7)
+;      (mapv
+;        (fn [x]
+;            (let [{:keys [:id, :status :broj, :primaorganizacija, :primaadresa, :popust, :datumprijema,
+;                          :storno, :euro, :datumprijema, :sluzba :dds_base :datumslanja]} x]
+;                 (->>
+;                   [id, 2, broj, 76, primaorganizacija, primaadresa, popust, datumslanja , (if storno 0 1),
+;                    (if euro 2 1), datumprijema, (sluzbe sluzba), 0]
+;                   (S/transform (S/nthpath 4) #(when % (->> (str/replace % #"\s+" " ")
+;                                                            (take 100)
+;                                                            (apply str)))))))
+;        (get_data standardoteka-conn select-ponude)))
+;
+;
+;
+;(defn insert-invoices []
+;      (let [value-groups (partition-all 50 (invoice-values))]
+;           (doseq [values-group value-groups]
+;                  (->>
+;                    (-> (insert-into :pay.invoice)
+;                        (columns :invoice_id, :type_invoice_id, :invoice_number, :user_profile_id, :c_name, :c_address,
+;                                 :discount, :date_order, :is_valid, :currency_id, :date_payment :invoice_number_prefix :dds_base)
+;                        (values values-group)
+;                        sql/format)
+;                    (S/transform S/FIRST #(str "SET IDENTITY_INSERT pay.invoice ON; " %))
+;                    (j/execute! smis-conn)))))
+;
+;
+;(defn insert-invoice-products []
+;      (let [value-groups (partition-all 50 (all-stds))]
+;           (doseq [values-group value-groups]
+;                  (->>
+;                    (-> (insert-into :pay.invoice_product)
+;                        (values values-group)
+;                        sql/format)
+;                    (j/execute! smis-conn)))))
 
 
-(defn insert-invoice-products []
-      (let [value-groups (partition-all 50 (all-stds))]
-           (doseq [values-group value-groups]
-                  (->>
-                    (-> (insert-into :pay.invoice_product)
-                        (values values-group)
-                        sql/format)
-                    (j/execute! smis-conn)))))
-
-
-(comment
-  (j/execute! smis-conn (sql/format (delete-from :pay.invoice)))
-  (insert-invoices)
-  (insert-invoice-products))
+;(comment
+;  (j/execute! smis-conn (sql/format (delete-from :pay.invoice)))
+;  (insert-invoices)
+;  (insert-invoice-products))
 
 ;--------------------------------------------------------------------------------------------
 ;REPORTS
 ;----------------------------------------------
 
 (def date-range
-  "[exclusive inclusive]"
-  ["2019-01-01" "2019-12-31"])
+  "[closed open]"
+  ["2021-01-01" "2021-04-01"])
 
 (defn sources [type]
       "if type = nill lists all sources"
@@ -538,11 +549,12 @@
               (conj (x 5) (double (if (:p_price y) (:p_price y) 0)))
               (conj (x 6) (double (if (:currency_amount y) (:currency_amount y) 0)))
               (conj (x 7) (if (= (if (:currency_id y) (:currency_id y) 1) 1) "KM" "EURO"))
-              (int (+ (x 8) (:p_quantity y)))
-              (double (+ (x 9) (* (:p_quantity y)
+              (conj (x 8) (if (:type_delivery_id y) (:type_delivery_id y) 1))
+              (int (+ (x 9) (:p_quantity y)))
+              (double (+ (x 10) (* (:p_quantity y)
                                   (:p_price y)
                                   (product-discount y))))))
-        [[] [] [] [] [] [] [] [] 0 0]
+        [[] [] [] [] [] [] [] [] [] 0 0]
         product-data))
 
 
@@ -604,8 +616,9 @@
         group-sales-data))
 
 
-(defn other-reports [type]
-      ":bs, :din"
+(defn other-reports
+      "na primjer #{\"SRPS\"}"
+      [type]
       (->>
         (get_data smis-conn all-other-sales)
         (filter #(:p_name %))
@@ -627,7 +640,7 @@
                   (let [[name data] report
                         sheet (add-sheet! wb name)]
                        (add-rows! sheet
-                                  (into [["Oznaka" "Jezik" "Broj racuna" "Datum" "Cijena KM" "Cijan Dev" "Valuta" "Kolicina" "Iznos"]]
+                                  (into [["Oznaka" "Jezik" "Broj racuna" "Datum" "Cijena KM" "Cijena Dev" "Valuta" "Isporuka" "Kolicina" "Iznos"]]
                                         (prepare-report data)))))
            (save-workbook! (str name ".xls") wb)))
 
@@ -643,7 +656,8 @@
                      ["BS" (other-reports bs)]
                      ["DIN" (other-reports din)]
                      ["BAS DIN" (bas-report :din)]
-                     ["EN CLC" (bas-report-orgin-source #{"CLC" "CLC & IEC"} :cen)]]]
+                     ["EN CLC" (bas-report-orgin-source #{"CLC" "CLC & IEC"
+                                                          "CEN, CLC, ISO" "CLC, IEC"} :cen)]]]
            (prepare-excel reports name)))
 
 (defn deja-iso-reports [name]
@@ -655,17 +669,25 @@
       (let [reports [["Svi standardi" (bas-report :all)]]]
            (prepare-excel reports name)))
 
-(defn total-sales []
-  (->> (get_data smis-conn all-sales)
-       (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix
-                             :invoice_id :is_valid :currency_id :date_order :p_name]))
-       ;(filter #(= "04" (:invoice_number_prefix %)))
-       (filter :is_valid)
-       (filter #(filter-dates (:date_order %)))
-       (group-by :invoice_id)
-       (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))
-       (map #(apply + (last %)))
-       (apply +)))
+(defn total-standrads-sales []
+  (->> (get_data smis-conn all-standard-sales)
+    (map #(select-keys % [:p_quantity :p_price
+                          :invoice_id  :date_order :p_name]))
+    (filter #(filter-dates (:date_order %)))
+    (mapv (juxt :p_quantity #(* (:p_price %) (:p_quantity %))))
+    (apply map +)
+    (zipmap [:kolicina :iznos])))
+
+(defn najprodavaniji-standardi []
+  (->> (get_data smis-conn all-standard-sales)
+    (map #(select-keys % [:p_name :p_quantity :date_order]))
+    (filter #(filter-dates (:date_order %)))
+    (group-by :p_name)
+    (map #(vector (first %) (map :p_quantity (second %))))
+    (map #(vector (first %) (apply + (second %))))
+    (sort-by second >)
+    (take 20)
+    (map #(zipmap [:oznaka :kolcina] %))))
 
 (defn average-price [type]
       (->> (bas-report type)
@@ -697,22 +719,52 @@
 (defn iso-quartal []
       "ukupan borj prodatih bas-iso standarda i ukupan prihod u KM za kvartalni izvjestaj"
       (->>
-        (bas-report :iso)
-        (mapv #(select-keys % [8 9]))
+        (bas-report :iso-report)
+        (mapv #(select-keys % [9 10 8]))
         (mapv vals)
         (reduce #(vector (+ (first %1) (first %2))
-                         (+ (second %1) (second %2))) [0 0])))
+                         (+ (second %1) (second %2))) [0 0])
+        (map int)
+        (zipmap [:kolicina :iznos])))
 
 (defn bas-quartal []
       "ukupan broj prodatih bas standarda i ukupan prihod u KM za kvartalni izvjestaj"
       (->>
         (bas-report :all)
-        (mapv #(select-keys % [8 9]))
+        (mapv #(select-keys % [9 10 8]))
         (mapv vals)
         (reduce #(vector (+ (first %1) (first %2))
-                         (+ (second %1) (second %2))) [0 0])))
+                         (+ (second %1) (second %2))) [0 0])
+        (map int)
+        (zipmap [:kolicina :iznos])))
 
-(defn godisnji-izvjestaj-originalni
+
+
+(defn prihod-po-formatu []
+  (->>
+    (get_data smis-conn all-standard-sales)
+    ;(filter #((sources nil) (:source %)))
+    (filter #(filter-dates (:date_order %)))
+    (group-by :type_delivery_id)
+    ;(take 1)
+    (map
+      (fn [x]
+        (hash-map
+          :isporuka (case (first x)
+                      1 "Posta"
+                      2 "Institut"
+                      6 "Elektronski"
+                      "Ostalo")
+          :kolicina (reduce #(+ %1 (int (if (:p_quantity %2)
+                                          (:p_quantity %2)
+                                          0)))
+                      0 (second x))
+          :iznos (reduce #(+ %1 (int (if (and (:p_quantity %2) (:p_price %2))
+                                       (* (:p_quantity %2) (:p_price %2))
+                                       0)))
+                         0 (second x)))))))
+
+(defn godisnji-izvjestaj
       "za Dejanu"
       [name]
       (let [reports [["BAS" (bas-report :all)]
@@ -722,8 +774,31 @@
            (prepare-excel reports name)))
 
 
+(defn godisnji-astm
+  "za Dejanu - perod je od prvog aprila do prvog aprila"
+  [name]
+  (let [reports [["ASTM standardi" (other-reports astm)]]]
+    (prepare-excel reports name)))
 
+(defn single-quantity
+  "primjer text = '9001'"
+  [text]
+  (filter (fn [x] (str/includes? (first x) text))
+          (map #(vector (first (second %)) (nth % 8))
+               (bas-report :all))))
 
+(defn besplatni-standardi
+  []
+  (->>  (bas-report nil)
+        (filterv #(= 0.0 (last %)))
+        (mapv #(select-keys % [1 9]))
+        (mapv #(update-in % [1] first))
+        (map vals)))
+
+(defn euro []
+  (let [reports [["Euro" (->> (bas-report :all)
+                              (filter #(.contains (nth % 7) "EURO")))]]]
+    (prepare-excel reports "Euro")))
 
 
 (comment
@@ -731,8 +806,8 @@
   ; update data
   ;--------------------------------------------------------------------------------------------
 
-  (insert-invoices)
-  (insert-invoice-products)
+  ;(insert-invoices)
+  ;(insert-invoice-products)
 
   ;reports
   ;--------------------------------------------------------------------------------------------

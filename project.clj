@@ -11,6 +11,6 @@
                  [org.clojure/clojure "1.10.0-RC1"]
                  [org.clojure/java.jdbc "0.7.8"]
                  ;[org.clojure/spec.alpha "0.2.176"]
-                 [funcool/promesa "4.0.2"]
+                 ;[funcool/promesa "4.0."]
                  [org.clojure/test.check "0.10.0-alpha3"]]
  :jvm-opts ["-Dclojure.server.repl={:port 5555 :accept clojure.core.server/repl}"]) ; notice that the map is not quoted

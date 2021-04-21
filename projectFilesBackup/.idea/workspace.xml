@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="439a96e5-f58d-44fd-bc81-a41fcf91a44e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prodaja/bas.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/prodaja/bas.clj" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/prodaja/bas.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="737" column="24" selection-start-line="737" selection-start-column="6" selection-end-line="737" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Clojure Namespace" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sourc</find>
+      <find>all-sales</find>
+      <find>astm</find>
+      <find>9001</find>
+      <find>p_type</find>
+      <find>source</find>
+      <find>:type_delivery_name</find>
+      <find>priho</find>
+      <find>update</find>
+      <find>insert-invoices</find>
+      <find>columns</find>
+      <find>en IEC</find>
+      <find>en iec</find>
+      <find>EN IEC</find>
+      <find>total-sales</find>
+      <find>jus</find>
+      <find>sanja</find>
+      <find>:iso-report</find>
+      <find>ele</find>
+      <find>:type_delivery_id</find>
+      <find>delivery</find>
+      <find>ponude-stavke</find>
+      <find>eur</find>
+      <find>all-sources</find>
+      <find>sources</find>
+      <find>all-other-sales</find>
+      <find>srps</find>
+      <find>other</find>
+      <find>etsi</find>
+      <find>other-reports</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>,</replace>
+      <replace>:odl_id</replace>
+      <replace>:BAS</replace>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/scraping/db.clj" />
+        <option value="$PROJECT_DIR$/src/scraping/data.clj" />
+        <option value="$PROJECT_DIR$/src/scraping/cosine.clj" />
+        <option value="$PROJECT_DIR$/src/scraping/core.clj" />
+        <option value="$PROJECT_DIR$/src/prodaja/data.clj" />
+        <option value="$PROJECT_DIR$/src/prodaja/db.clj" />
+        <option value="$PROJECT_DIR$/src/prodaja/core.clj" />
+        <option value="$PROJECT_DIR$/project.clj" />
+        <option value="$PROJECT_DIR$/src/prodaja/bas.clj" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="40" />
+    <option name="y" value="16" />
+    <option name="width" value="1700" />
+    <option name="height" value="992" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="prodaja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodaja" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prodaja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodaja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prodaja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodaja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="prodaja" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToNamespace.includeLibraries" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="cursive.last.file.extension.C\:/Projects/BAS/prodaja/src" value="clj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SMIS reports" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+  </component>
+  <component name="ReplState" timestamp="1613736176153">{:repl-history {:ide [], :local [{:command &quot;@(future)&quot;, :offset 2, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 188, :ns &quot;user&quot;} {:command &quot;(time @(-&gt; (enqueue enes (wait 200 \&quot;'Ello, gov'na!\&quot;) (println @enes))\n           (enqueue enes (wait 400 \&quot;Pip pip!\&quot;) (println @enes))\n           (enqueue enes (wait 100 \&quot;Cheerio!\&quot;) (println @enes))))&quot;, :offset 199, :ns &quot;user&quot;} {:command &quot;(time @(-&gt; (enqueue enes (wait 2000 \&quot;'Ello, gov'na!\&quot;) (println @enes))\n           (enqueue enes (wait 4000 \&quot;Pip pip!\&quot;) (println @enes))\n           (enqueue enes (wait 1000 \&quot;Cheerio!\&quot;) (println @enes))))&quot;, :offset 171, :ns &quot;user&quot;} {:command &quot;(time @(-&gt; (do (println 1) (enqueue enes (wait 5000 \&quot;'Ello, gov'na!\&quot;) (println @enes)))\n           (do (println 2) (enqueue enes (wait 4000 \&quot;Pip pip!\&quot;) (println @enes)))\n           (do (println 3) (enqueue enes (wait 1000 \&quot;Cheerio!\&quot;) (println @enes)))))&quot;, :offset 195, :ns &quot;user&quot;} {:command &quot;(time @(-&gt; (do (println 1) (enqueue enes (wait 500 \&quot;'Ello, gov'na!\&quot;) (println @enes)))\n           (do (println 2) (enqueue enes (wait 4000 \&quot;Pip pip!\&quot;) (println @enes)))\n           (do (println 3) (enqueue enes (wait 1000 \&quot;Cheerio!\&quot;) (println @enes)))))&quot;, :offset 86, :ns &quot;user&quot;} {:command &quot;(time @(-&gt; (enqueue enes (wait 5000 \&quot;'Ello, gov'na!\&quot;) (println @enes))\n           (enqueue enes (wait 4000 \&quot;Pip pip!\&quot;) (println @enes))\n           (enqueue enes (wait 1000 \&quot;Cheerio!\&quot;) (println @enes))))&quot;, :offset 33, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println ~q)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 90, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println \&quot;fdf\&quot; )\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 95, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println \&quot;fdf\&quot; ~q)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 93, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println q)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 89, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println q \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 98, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println (type q ) \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 98, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println (type q ) q \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 101, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println @q  q \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 90, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println   q \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 89, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println   @q \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 92, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println   (deref q) \&quot;   END\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 131, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (deref q)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 80, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (deref (evalq))\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 95, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (eval (deref q))\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 87, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (deref (eval q))\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 118, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println \&quot;dd\&quot; (deref (eval q)))\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 92, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      (println \&quot;begin  \&quot; (deref (eval q)) \&quot;   end\&quot;)\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 97, :ns &quot;user&quot;} {:command &quot;(defmacro enqueue\n     ([q concurrent-promise-name concurrent serialized]\n      `(let [~concurrent-promise-name (promise)]\n         (future (deliver ~concurrent-promise-name ~concurrent))\n         (deref ~q)\n         ~serialized\n         ~concurrent-promise-name))\n     ([concurrent-promise-name concurrent serialized]\n      `(enqueue (future) ~concurrent-promise-name ~concurrent ~serialized)))\n&quot;, :offset 74, :ns &quot;user&quot;} {:command &quot;(time @(-&gt; (enqueue enes (wait 500 \&quot;'Ello, gov'na!\&quot;) (println @enes))\n           (enqueue enes (wait 4000 \&quot;Pip pip!\&quot;) (println @enes))\n           (enqueue enes (wait 1000 \&quot;Cheerio!\&quot;) (println @enes))))&quot;, :offset 32, :ns &quot;user&quot;} {:command &quot;(let [saying3 (promise)]\n  (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n  @(let [saying2 (promise)]\n     (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n     ➊      @(let [saying1 (promise)]\n               (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n               (println @saying1)\n               saying1)\n     (println @saying2)\n     saying2)\n  (println @saying3)\n  saying3)\n&quot;, :offset 394, :ns &quot;user&quot;} {:command &quot;(let [saying3 (promise)]\n  (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n  @(let [saying2 (promise)]\n     (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1)\n              saying1))\n     (println @saying2)\n     saying2)\n  (println @saying3)\n  saying3)\n&quot;, :offset 390, :ns &quot;user&quot;} {:command &quot;(let [saying3 (promise)]\n  (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n  @(let [saying2 (promise)]\n     (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1)\n              saying1)\n       (println @saying2)\n       saying2))\n  (println @saying3)\n  saying3)\n&quot;, :offset 393, :ns &quot;user&quot;} {:command &quot;(let [saying3 (promise)]\n  (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n  @(let [saying2 (promise)]\n     (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1)\n              saying1)\n       (println @saying2)\n       saying2))\n  (println @saying3)\n  @saying3)\n&quot;, :offset 386, :ns &quot;user&quot;} {:command &quot;(let [saying3 (promise)]\n  (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n  (let [saying2 (promise)]\n    (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;))\n          (let [saying1 (promise)]\n            (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n            (println @saying1 1)\n            saying1)\n      (println @saying2 2)\n      saying2))\n  (println @saying3 3)\n  @saying3)\n&quot;, :offset 388, :ns &quot;user&quot;} {:command &quot;(let [saying3 (promise)]\n  (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n  @(let [saying2 (promise)]\n     (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1)\n       (println @saying2 2)\n       saying2))\n  (println @saying3 3)\n  @saying3)\n&quot;, :offset 387, :ns &quot;user&quot;} {:command &quot;(let [saying1 (promise)]\n  (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n  (println @saying1 1)\n  saying1)&quot;, :offset 115, :ns &quot;user&quot;} {:command &quot;(let [saying1 (promise)]\n  (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n  (println @saying1 1))\n&quot;, :offset 106, :ns &quot;user&quot;} {:command &quot;(let [saying1 (promise)]\n  (future (deliver saying1 (wait 800 \&quot;'Ello, gov'na!\&quot;)))\n  (println @saying1 1))\n&quot;, :offset 59, :ns &quot;user&quot;} {:command &quot;(let [saying1 (promise)]\n  (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n  (println @saying1 1))\n&quot;, :offset 60, :ns &quot;user&quot;} {:command &quot;(let [saying2 (promise)]\n  (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;))\n       (let [saying1 (promise)]\n         (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;))\n             (println @saying1 1)\n             saying1))\n       (println @saying2 2)\n       saying2))\n&quot;, :offset 82, :ns &quot;user&quot;} {:command &quot;(let [saying2 (promise)]\n  (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;))\n       (let [saying1 (promise)]\n         (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;))\n             (println @saying1 1)\n             saying1))\n       (println @saying2 2)\n       saying2))\n&quot;, :offset 60, :ns &quot;user&quot;} {:command &quot;(let [saying2 (promise)]\n  (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;))\n       (let [saying1 (promise)]\n         (future (deliver saying1 (wait 20 \&quot;'Ello, gov'na!\&quot;))\n             (println @saying1 1)\n             saying1))\n       (println @saying2 2)\n       saying2))\n&quot;, :offset 149, :ns &quot;user&quot;} {:command &quot;(let [saying1 (promise)]\n  (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n  (println @saying1 1)\n  saying1)&quot;, :offset 116, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;))\n             (let [saying1 (promise)]\n               (future (deliver saying1 (wait 20 \&quot;'Ello, gov'na!\&quot;))\n                   (println @saying1 1)\n                   saying1))\n             (println @saying2 2)\n             saying2)))\n&quot;, :offset 6, :ns &quot;user&quot;} {:command &quot;(time (let [saying1 (promise)]\n        (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n        (println @saying1 1)\n        saying1))&quot;, :offset 6, :ns &quot;user&quot;} {:command &quot;(time\n  (let [saying2 \&quot;dfsdf\&quot;]\n    (let [saying1 (promise)]\n      (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n      (println @saying1 1)\n      saying1)\n    saying2))&quot;, :offset 175, :ns &quot;user&quot;} {:command &quot;(time\n  (let [saying2 (promise)]\n    (future (deliver saying2 (wait 2000 \&quot;Pip pip!\&quot;)))\n    (let [saying1 (promise)]\n      (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n      (println @saying1 1)\n      saying1)\n    saying2))&quot;, :offset 233, :ns &quot;user&quot;} {:command &quot;(time\n  (let [saying2 (promise)]\n    (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n    (let [saying1 (promise)]\n      (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n      (println @saying1 1)\n      saying1)\n    saying2))&quot;, :offset 69, :ns &quot;user&quot;} {:command &quot;(time\n  (let [saying2 (promise)]\n    (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n    (let [saying1 (promise)]\n      (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n      (println @saying1 1)\n      saying1)\n    (println @saying2 2)\n    saying2))&quot;, :offset 258, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 2000 \&quot;Pip pip!\&quot;))\n             (let [saying1 (promise)]\n               (future (deliver saying1 (wait 1000 \&quot;'Ello, gov'na!\&quot;))\n                   (println @saying1 1)\n                   saying1))\n             (println @saying2 2)\n             saying2)))\n&quot;, :offset 175, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 2000 \&quot;Pip pip!\&quot;)))\n        (let [saying1 (promise)]\n          (future (deliver saying1 (wait 1000 \&quot;'Ello, gov'na!\&quot;))\n              (println @saying1 1)\n              saying1))\n        (println @saying2 2)\n        saying2))\n&quot;, :offset 292, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n        (let [saying1 (promise)]\n          (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;))\n              (println @saying1 1)\n              saying1))\n        (println @saying2 2)\n        saying2))\n&quot;, :offset 163, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n        (let [saying1 (promise)]\n          (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;))\n              (println @saying1 1)\n              saying1))))\n&quot;, :offset 248, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n        (let [saying1 (promise)]\n          (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n          (println @saying1 1)\n          saying1)))\n&quot;, :offset 239, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n        (let [saying1 (promise)]\n          (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n          (println @saying1 1)\n          saying1)\n        (println @saying2 2)\n        saying2)\n&quot;, :offset 237, :ns &quot;user&quot;} {:command &quot;(time (let [saying2 (promise)]\n        (future (deliver saying2 (wait 1000 \&quot;Pip pip!\&quot;)))\n        (let [saying1 (promise)]\n          (future (deliver saying1 (wait 2000 \&quot;'Ello, gov'na!\&quot;)))\n          (println @saying1 1)\n          saying1)\n        (println @saying2 2)\n        saying2))\n&quot;, :offset 284, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1\n             (println @saying2 2)\n             saying2))\n        (println @saying3 3)\n        @saying3))\n&quot;, :offset 6, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1\n              (println @saying2 2)\n              saying2))\n        (println @saying3 3)\n        @saying3))\n&quot;, :offset 451, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1\n              (println @saying2 2)\n              saying2))\n        (println @saying3 3)\n        saying3))\n&quot;, :offset 441, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1\n              (println @saying2 2)\n              saying2))\n        (println saying3 3)\n        saying3))\n&quot;, :offset 421, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1)\n           (println @saying2 2)\n           saying2)\n        (println @saying3 3)\n        @saying3)\n&quot;, :offset 444, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           @(let [saying1 (promise)]\n              (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n              (println @saying1 1)\n              saying1)\n           (println @saying2 2)\n           saying2)\n        (println @saying3 3)\n        @saying3))\n&quot;, :offset 445, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        @(let [saying2 (promise)]\n           (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n           (let [saying1 (promise)]\n             (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n             (println @saying1 1)\n             saying1)\n           (println @saying2 2)\n           saying2)\n        (println @saying3 3)\n        @saying3))\n&quot;, :offset 193, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        (let [saying2 (promise)]\n          (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n          (let [saying1 (promise)]\n            (future (deliver saying1 (wait 200 \&quot;'Ello, gov'na!\&quot;)))\n            (println @saying1 1)\n            saying1)\n          (println @saying2 2)\n          saying2)\n        (println @saying3 3)\n        @saying3))\n&quot;, :offset 96, :ns &quot;user&quot;} {:command &quot;(time (let [saying3 (promise)]\n        (future (deliver saying3 (wait 100 \&quot;Cheerio!\&quot;)))\n        (let [saying2 (promise)]\n          (future (deliver saying2 (wait 400 \&quot;Pip pip!\&quot;)))\n          (let [saying1 (promise)]\n            (future (deliver saying1 (wait 800 \&quot;'Ello, gov'na!\&quot;)))\n            (println @saying1 1)\n            saying1)\n          (println @saying2 2)\n          saying2)\n        (println @saying3 3)\n        @saying3))\n&quot;, :offset 259, :ns &quot;user&quot;} {:command &quot;(get-org-prefixes)&quot;, :offset 17, :ns &quot;prodaja.bas&quot;} {:command &quot;(all-sales)&quot;, :offset 10, :ns &quot;prodaja.bas&quot;} {:command &quot;(get_data smis-conn all-sales)&quot;, :offset 30, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (take 10))\n          ;(map #(apply + (last %)))\n          ;((juxt #(apply + %) #(count %)))\n          ;(apply /))&quot;, :offset 377, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (map #(apply + (last %)))\n     (take 10))\n          ;(map #(apply + (last %)))\n          ;((juxt #(apply + %) #(count %)))\n          ;(apply /))&quot;, :offset 399, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (map #(apply + (last %)))\n     (take 10)\n     (apply +))\n               ;(map #(apply + (last %)))\n               ;((juxt #(apply + %) #(count %)))\n               ;(apply /))&quot;, :offset 428, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (map #(apply + (last %)))\n     ;(take 10)\n     (apply +))\n               ;(map #(apply + (last %)))\n               ;((juxt #(apply + %) #(count %)))\n               ;(apply /))&quot;, :offset 430, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :date_order :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (map #(apply + (last %)))\n     (filter #(filter-dates (:date_order %)))\n     ;(take 10)\n     (apply +))\n               ;(map #(apply + (last %)))\n               ;((juxt #(apply + %) #(count %)))\n               ;(apply /))&quot;, :offset 457, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :date_order :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (group-by :invoice_id)\n     ;(S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     ;(map #(apply + (last %)))\n     ;(filter #(filter-dates (:date_order %)))\n     (take 10))\n     ;(apply +))\n              ;(map #(apply + (last %)))\n              ;((juxt #(apply + %) #(count %)))\n              ;(apply /))&quot;, :offset 491, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :date_order :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (filter #(filter-dates (:date_order %)))\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (map #(apply + (last %)))\n     ;(take 10)\n     (apply +))\n               ;(map #(apply + (last %)))\n               ;((juxt #(apply + %) #(count %)))\n               ;(apply /))&quot;, :offset 273, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt; (get_data smis-conn all-sales)\n     (map #(select-keys % [:p_quantity :p_price :invoice_number_prefix\n                           :invoice_id :is_valid :currency_id :date_order :p_name]))\n     ;(filter #(= \&quot;04\&quot; (:invoice_number_prefix %)))\n     (filter :is_valid)\n     (filter #(filter-dates (:date_order %)))\n     (group-by :invoice_id)\n     (S/transform [S/ALL S/LAST] #(map (fn [x] (* (:p_price x) (:p_quantity x))) %))\n     (map #(apply + (last %)))\n     (take 10))\n     ;(apply +))\n               ;(map #(apply + (last %)))\n               ;((juxt #(apply + %) #(count %)))\n               ;(apply /))&quot;, :offset 496, :ns &quot;prodaja.bas&quot;} {:command &quot;(bas-report :iec)&quot;, :offset 17, :ns &quot;prodaja.bas&quot;} {:command &quot;(iec-report)&quot;, :offset 12, :ns &quot;prodaja.bas&quot;} {:command &quot;(bas-report :iso)&quot;, :offset 17, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)})))&quot;, :offset 173, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)})) \n  :source)&quot;, :offset 177, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)})) \n  (map  :source))&quot;, :offset 182, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(\&quot;DIN\&quot; (:source %))))&quot;, :offset 190, :ns &quot;prodaja.bas&quot;} {:command &quot;(other-reports :din)&quot;, :offset 16, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(:din (:source %))))&quot;, :offset 190, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(din (:source %))))&quot;, :offset 189, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(din (:source %))))\n  ;(filter #(filter-dates (:date_order %)))\n  ;group-sales-data)&quot;, :offset 269, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(din (:source %)))\n  (filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 268, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(din (:source %))))\n  ;(filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 249} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(din (:source %)))\n  (map :date_order))\n  ;group-sales-data)&quot;, :offset 245, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(din (:source %)))\n  (map :date_order)\n  group-sales-data)&quot;, :offset 243, :ns &quot;prodaja.bas&quot;} {:command &quot;(other-reports din)&quot;, :offset 18, :ns &quot;prodaja.bas&quot;} {:command &quot;(ino-reports \&quot;sanja.xls\&quot;)&quot;, :offset 25, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(iso (:source %))))\n  ;(filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 189, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-other-sales)\n  (filter #(:p_name %))\n  (pmap #(merge % {:source (first (str/split (:p_name %) #\&quot; \&quot;))\n                   :p_id   (:p_name %)}))\n  (filter #(iso (:source %)))\n  (filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 268, :ns &quot;prodaja.bas&quot;} {:command &quot;all-iso-sales-sql&quot;, :offset 17, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iso-sales-sql)\n  (filter #(filter-dates (:date_order %)))\n  group-sales-data)&quot;, :offset 108, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iso-sales-sql)\n  ;(filter #(filter-dates (:date_order %)))\n  group-sales-data)&quot;, :offset 109, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iso-sales-sql)\n  (filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 110, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iso-sales-sql))\n  ;(filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 112, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iso-sales-sql)\n  (map :date_order ))\n  ;(filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 65, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iec-sales-sql)\n  (map :date_order) \n  sort)\n  ;(filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 4, :ns &quot;prodaja.bas&quot;} {:command &quot;(-&gt;&gt;\n  (get_data smis-conn all-iso-sales-sql)\n  (map :date_order) \n  sort)\n  ;(filter #(filter-dates (:date_order %))))\n  ;group-sales-data)&quot;, :offset 140, :ns &quot;prodaja.bas&quot;}], :remote []}}</component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="NREPL" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="prodaja" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <module name="prodaja" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="$PROJECT_DIR$" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="439a96e5-f58d-44fd-bc81-a41fcf91a44e" name="Default Changelist" comment="" />
+      <created>1536652860286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1536652860286</updated>
+    </task>
+    <task id="LOCAL-00001" summary="10-2019">
+      <created>1571835186052</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571835186052</updated>
+    </task>
+    <task id="LOCAL-00002" summary="02-2020">
+      <created>1581333978750</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581333978750</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="40" y="16" width="1700" height="992" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19695123" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="DB Browser" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49938875" visible="true" weight="0.26980484" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49938875" weight="0.32930845" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50061125" side_tool="true" weight="0.20895523" />
+      <window_info anchor="bottom" id="Docker" order="11" weight="0.4720358" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="12" visible="true" weight="0.38650963" />
+      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" x="545" y="93" width="614" height="821" id="REPL" order="3" sideWeight="0.50054884" side_tool="true" visible="true" weight="0.37560976" />
+      <window_info anchor="right" id="Leiningen" order="4" sideWeight="0.49945116" weight="0.3294621" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="make" order="7" />
+      <window_info anchor="right" x="856" y="106" width="521" height="776" id="Documentation" order="8" side_tool="true" type="FLOATING" weight="0.32966322" />
+    </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="10-2019" />
+    <MESSAGE value="02-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="02-2020" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/scraping/clc-iec.clj" />
+    <entry file="file://$PROJECT_DIR$/src/scraping/google.clj" />
+    <entry file="file://$PROJECT_DIR$/src/scraping/tray.clj" />
+    <entry file="jar://$MAVEN_REPOSITORY$/clj-fuzzy/clj-fuzzy/0.4.1/clj-fuzzy-0.4.1.jar!/clj_fuzzy/hamming.cljc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/clj-fuzzy/clj-fuzzy/0.4.1/clj-fuzzy-0.4.1.jar!/clj_fuzzy/metrics.cljc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prodaja/cosine.clj" />
+    <entry file="jar://$MAVEN_REPOSITORY$/dk/ative/docjure/1.7.0/docjure-1.7.0.jar!/dk/ative/docjure/spreadsheet.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="470" column="10" selection-start-line="470" selection-start-column="6" selection-end-line="470" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/clojure/java.jdbc/0.7.8/java.jdbc-0.7.8.jar!/clojure/java/jdbc.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="1407" column="6" selection-start-line="1407" selection-start-column="6" selection-end-line="1407" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/clojure/clojure/1.10.0-RC1/clojure-1.10.0-RC1.jar!/clojure/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="6781" column="6" selection-start-line="6781" selection-start-column="6" selection-end-line="6781" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prodaja/data.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/honeysql/honeysql/0.9.3/honeysql-0.9.3.jar!/honeysql/helpers.cljc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/clj-time/clj-time/0.14.4/clj-time-0.14.4.jar!/clj_time/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="610" selection-start-line="610" selection-end-line="610" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prodaja/db.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prodaja/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prodaja/bas.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="737" column="24" selection-start-line="737" selection-start-column="6" selection-end-line="737" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>IDE SDK</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>prodaja</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>IDE SDK</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Leiningen: clj-time:0.14.4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
